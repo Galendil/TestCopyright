@@ -40,10 +40,10 @@ for FILE in $fully_staged_files ; do
     sed -i $'s/\t/    /g' "$FILE"
 
     # Strip trailing whitespace
-    sed -i -E 's/[[:space:]]*$//' "$FILE"
+    sed -i '' -E 's/[[:space:]]*$//' "$FILE"
 
     # Add newline to the end of the file
-    sed -i $'/^$/!s/$/\/' "$FILE"
+    sed -i '' $'/^$/!s/$/\/' "$FILE"
 
     # Stage all changes
     git add "$FILE"
