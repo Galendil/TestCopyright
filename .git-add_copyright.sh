@@ -37,13 +37,13 @@ for FILE in $fully_staged_files ; do
     echo "Fixing whitespace and newline in $FILE" >&2
 
     # Replace tabs with four spaces
-    sed -i '' $'s/\t/    /g' "$FILE"
+    sed -i '' $'s/	/    /g' "$FILE"
 
     # Strip trailing whitespace
-    sed -i '' -E 's/[[:space:]]*$//' "$FILE"
+    #sed -i '' -E 's/[[:space:]]*$//' "$FILE"
 
     # Add newline to the end of the file
-    sed -i '' $'/^$/!s/$/\/' "$FILE"
+    #sed -i '' $'/^$/!s/$/\/' "$FILE"
 
     # Stage all changes
     git add "$FILE"
