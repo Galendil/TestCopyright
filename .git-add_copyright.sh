@@ -37,7 +37,7 @@ for FILE in $fully_staged_files ; do
     echo "Fixing whitespace and newline in $FILE" >&2
 
     # Replace tabs with four spaces
-    sed -i '' 's/	/    /g' "$FILE"
+    get-content $FILE | %{$_ -replace "	","    "}
 
     # Strip trailing whitespace
     #sed -i '' -E 's/[[:space:]]*$//' "$FILE"
