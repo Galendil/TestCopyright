@@ -30,6 +30,7 @@ def main():
     # Regular expressions used for the hooks
     REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
     REtabulations = re.compile(".*\t")
+    REtrailingSpaces = re.compile(".* $")
     
     #We print all the files concerned by the hook
     print("Files to check")
@@ -64,6 +65,21 @@ def main():
                 
             filedata = filedata + split
         
+        ## Removing trailing spaces
+        splits = filedata.split("\n")
+        filedata = ""
+        for id,split in enumerate(splits):
+        
+            if not (id == 0):
+                filedata = filedata + "\n"
+                
+            if( REtrailingSpaces.match(split) ):
+                split = split.rstrip()
+                print(Back.MAGENTA + '    ---- Line ' + str (id+1) + ' - Removing trailing spaces' + Style.RESET_ALL)
+        
+            filedata = filedata + split
+            
+
         #-------------------------------------------------------
 
         # Write the file out again
