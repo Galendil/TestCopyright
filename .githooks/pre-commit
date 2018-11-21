@@ -29,7 +29,7 @@ def main():
     
     # Regular expressions used for the hooks
     REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
-    REtabulations = re.compile("\t")
+    REtabulations = re.compile("	")
     
     #We print all the files concerned by the hook
     print("Files to check")
@@ -50,7 +50,7 @@ def main():
         ## Adding comments before any printf statement ?? //Warning but commit anyway
         #filedata = filedata.replace('printf', '//printf') #not enough
 
-        ## Replacing tabulations by four spaces in beginning of lines
+        ## Replacing tabulations by four spaces (Check later if need to be more accurate than this, like replacing only tabulation at the beginning of lines, for example)
         splits = filedata.split("\n")
         filedata = ""
         for id,split in enumerate(splits):
