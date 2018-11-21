@@ -21,11 +21,10 @@ def system(*args, **kwargs):
 def main():
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
-    REmodifiedCpp = re.compile('^[AM]+Odyssey+(?P<name>.*\.cpp)', re.MULTILINE)
-    REmodifiedH = re.compile('^[AM]+Odyssey+(?P<name>.*\.h)', re.MULTILINE)
+    REmodifiedCpp = re.compile('^[AM]+\s+(?P<name>.*\?Odyssey.*\.cpp)', re.MULTILINE)
+    REmodifiedH = re.compile('^[AM]+\s+(?P<name>.*\?Odyssey.*\.h)', re.MULTILINE)
 
     # We get all the .h and .cpp files ready for the hook
-    print(allModifiedFiles)
     modifiedHookedFiles = REmodifiedCpp.findall(allModifiedFiles)
     modifiedHookedFiles = modifiedHookedFiles + REmodifiedH.findall(allModifiedFiles)
     
