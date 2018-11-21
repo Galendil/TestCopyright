@@ -22,7 +22,7 @@ def system(*args, **kwargs):
 
 
 def main():
-    modified = re.compile('^[AM]+\s+(?P<name>.*\.(h|c(pp)?))', re.MULTILINE)
+    modified = re.compile('^[AM]+\s+(?P<name>.\.(h|cpp))', re.MULTILINE)
     files = system('git', 'status', '--porcelain').decode('utf-8')
 
     #We print all the files concerned by the checks
@@ -31,6 +31,7 @@ def main():
     print(files)
 
     for filename in files:
+        print(filename)
         # Read in the file
         with open(filename, 'r') as file :
             filedata = file.read()
