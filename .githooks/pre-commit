@@ -32,7 +32,7 @@ def main():
     REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
     REtabulations = re.compile(".*\t")
     REtrailingSpaces = re.compile(".* $")
-    REemptyLine = re.compile("\r\n$");
+    REemptyLine = re.compile("\n$")
     
     #We print each file concerned by the hook, followed by the modifications done on it
     print("Files hooked:")
@@ -54,7 +54,7 @@ def main():
         ## Checking the last empty line
         if not( REemptyLine.match(filedata) ) :
             print(Back.GREEN + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
-            filedata = filedata + "\r\n"
+            filedata = filedata + "\n"
 
 
         ## Replacing tabulations by four spaces (Check later if need to be more accurate than this, like replacing only tabulation at the beginning of lines, for example)

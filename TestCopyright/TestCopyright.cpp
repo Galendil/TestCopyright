@@ -7,7 +7,7 @@ main()
 }dqsdqsdqsdcqsdsqd
 qdsihidhqsddqsdqsqsdsq
 
-            dqsqsdojd dqsdqsdqsdsqdqsdqsdqs\nsuhzd
+            dqsqsdojqsdqsdd dqsdqsdqsdsqdqsdqsdqs\nsuhzd
 dqsdqsdfsdfsd
 
 qsdqsdqsd
@@ -15,5 +15,3 @@ qsd
 qsdqsdsqd
 sqs
 
-
-
