@@ -3,7 +3,68 @@
 # The script does not process files that are partially staged. Reason: The `git add` in the last line would fully
 # stage a file which is not what the user wants.
 
-if git rev-parse --verify HEAD >/dev/null 2>&1 ; then
+if git rev-parse --verify HEAD >/dev/null 2>&#!/usr/bin/env python3
+
+from __future__ import with_statement
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+
+
+git_binary_path = "/usr/bin/git"
+
+
+def system(*args, **kwargs):
+    kwargs.setdefault('stdout', subprocess.PIPE)
+    proc = subprocess.Popen(args, **kwargs)
+    out, err = proc.communicate()
+    return out
+
+
+def main():
+    modified = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
+    files = system('git', 'status', '--porcelain').decode('utf-8')
+    print("Files to check\n")
+    files = modified.findall(files)
+    print(files)
+
+    for filename in files:
+        # Read in the file
+        with open(filename, 'r') as file :
+            filedata = file.read()
+
+		#CONDITIONS TO CHECK BY READING THE FILE ---------------
+	
+	
+        ## Checking the copyright
+        REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
+        if not( REcopyright.match(filedata) ) :
+            filedata = "// Copyright 2018 Praxinos, Inc. All Rights Reserved. \n" + filedata
+	
+		## Adding comments before any printf statement ?? //Warning but commit anyway
+        filedata = filedata.replace('printf', '//printf') #not enough
+		
+	
+        ## Replacing tabulations by four spaces
+        filedata = filedata.replace('	', '    ')
+		
+		
+		#-------------------------------------------------------
+
+        # Write the file out again
+        with open(filename, 'w') as file:
+            file.write(filedata)
+
+    print("It worked")
+    sys.exit(0)
+
+
+if __name__ == '__main__':
+    main()
+1 ; then
    against=HEAD
 else
    # Initial commit: diff against an empty tree object
