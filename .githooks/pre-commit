@@ -20,12 +20,16 @@ def system(*args, **kwargs):
 def main():
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
-    modifiedCpp = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
-    modifiedH = re.compile('^[AM]+\s+(?P<name>.*\.h)', re.MULTILINE)
+    REmodifiedCpp = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
+    REmodifiedH = re.compile('^[AM]+\s+(?P<name>.*\.h)', re.MULTILINE)
 
     # We get all the .h and .cpp files ready for the hook
-    modifiedHookedFiles = modifiedCpp.findall(allModifiedFiles)
-    modifiedHookedFiles = modifiedHookedFiles + modifiedH.findall(allModifiedFiles)
+    modifiedHookedFiles = REmodifiedCpp.findall(allModifiedFiles)
+    modifiedHookedFiles = modifiedHookedFiles + REmodifiedH.findall(allModifiedFiles)
+    
+    # Regular expressions used for the hooks
+    REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
+    REtabulations = re.compile("^ *\t+")
     
     #We print all the files concerned by the hook
     print("Files to check")
@@ -39,7 +43,6 @@ def main():
         #HOOK CONDITIONS ----------------------------------------
 
         ## Checking the copyright
-        REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
         if not( REcopyright.match(filedata) ) :
             print(Back.GREEN + '    ---- Correction of the copyright' + Style.RESET_ALL)
             filedata = "// Copyright 2018 Praxinos, Inc. All Rights Reserved. \n" + filedata
@@ -47,12 +50,12 @@ def main():
         ## Adding comments before any printf statement ?? //Warning but commit anyway
         #filedata = filedata.replace('printf', '//printf') #not enough
 
-        ## Replacing tabulations by four spaces
+        ## Replacing tabulations by four spaces in beginning of lines
         splits = filedata.split("\n")
-        print (splits)
-        filedata = filedata.replace('\t', '    ')
-        print(Back.CYAN + '    ---- Replacing tabulations with spaces' + Style.RESET_ALL)
-        
+        for split in splits:
+            if( REtabulations.match(split) ):
+                split = re.sub(REtabulations, '    ', split)
+                print(Back.CYAN + '    ---- Replacing tabulations with spaces' + Style.RESET_ALL)        
         
         #-------------------------------------------------------
 
