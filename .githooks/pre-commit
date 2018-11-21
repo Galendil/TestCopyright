@@ -59,7 +59,7 @@ def main():
                 filedata = filedata + "\n"
                 
             if( REtabulations.match(split) ):
-                split.replace("\t", "    ")
+                split = split.replace("\t", "    ")
                 print(Back.CYAN + '    ---- Line ' + str (id+1) + ' - Replacing tabulations with spaces' + Style.RESET_ALL)
                 
             filedata = filedata + split
