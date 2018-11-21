@@ -50,13 +50,6 @@ def main():
             print(Back.GREEN + '    ---- Line 1 - Adding the copyright' + Style.RESET_ALL)
             filedata = "// Copyright 2018 Praxinos, Inc. All Rights Reserved. \n" + filedata
 
-            
-        ## Checking the last empty line
-        if not( REemptyLine.match(filedata) ) :
-            print(filedata)
-            print(Back.GREEN + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
-            filedata = filedata + "\n"
-
 
         ## Replacing tabulations by four spaces (Check later if need to be more accurate than this, like replacing only tabulation at the beginning of lines, for example)
         splits = filedata.split("\n")
@@ -86,6 +79,15 @@ def main():
                 print(Back.RED + '    ---- Line ' + str (id+1) + ' - Removing trailing spaces' + Style.RESET_ALL)
         
             filedata = filedata + split
+            
+
+                        
+        ## Checking the last empty line
+        if not( REemptyLine.match(filedata) ) :
+            print(filedata)
+            print(Back.GREEN + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
+            filedata = filedata + "\n"
+     
 
         #-------------------------------------------------------
 
