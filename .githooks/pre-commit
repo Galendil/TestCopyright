@@ -22,7 +22,7 @@ def system(*args, **kwargs):
 
 
 def main():
-    modified = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
+    modified = re.compile('^[AM]+\s+(?P<name>.*\.(h|c(pp)?))', re.MULTILINE)
     files = system('git', 'status', '--porcelain').decode('utf-8')
 
     #We print all the files concerned by the checks
