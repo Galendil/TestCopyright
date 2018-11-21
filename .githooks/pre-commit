@@ -55,7 +55,7 @@ def main():
         filedata = ""
         for split in splits:
             if( REtabulations.match(split) ):
-                split = re.sub(REtabulations, '^ *    ', split)
+                split = re.sub(REtabulations, "^ *    ", split)
                 print(split)
                 print(Back.CYAN + '    ---- Replacing tabulations with spaces' + Style.RESET_ALL)        
             filedata = filedata + split + "\n"
