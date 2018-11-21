@@ -7,7 +7,7 @@ main()
 }dqsd
 qdsihidhqsddqsdqs
 
-            dqsojd \nsuhzd
+            dqsojd dqsdqsdqs\nsuhzd
 dqsdqsd
 
 
