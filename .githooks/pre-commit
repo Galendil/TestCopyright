@@ -29,7 +29,7 @@ def main():
     
     # Regular expressions used for the hooks
     REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
-    REtabulations = re.compile("^ *\t")
+    REtabulations = re.compile("\t")
     
     #We print all the files concerned by the hook
     print("Files to check")
@@ -55,7 +55,7 @@ def main():
         filedata = ""
         for split in splits:
             if( REtabulations.match(split) ):
-                split = re.sub(REtabulations, "^ *    ", split)
+                split = re.sub(REtabulations, "    ", split)
                 print(split)
                 print(Back.CYAN + '    ---- Replacing tabulations with spaces' + Style.RESET_ALL)        
             filedata = filedata + split + "\n"
