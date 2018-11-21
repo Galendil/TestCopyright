@@ -1,5 +1,5 @@
 // Copyright 2018 Praxinos, Inc. All Rights Reserved. 
-qsd
+        
 // pch.cpp : fichier source correspondant à l'en-tête précompilé ; nécessaire au bon déroulement de la compilation
 qdsdsqdqsdqsdqdsqsdqsdqsdqs
 #include "pch.h"

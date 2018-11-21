@@ -1,8 +1,5 @@
 // Copyright 2018 Praxinos, Inc. All Rights Reserved. 
-qs
-
-dqsddqsdqsdqsdsqd
-dqsddsqdqsqdsqdqsdqsd
+                d
 
 // Copyright 2018 Praxinos, Inc. All Rights Reserved. 
 int pied()
