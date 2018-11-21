@@ -15,13 +15,14 @@ def system(*args, **kwargs):
     proc = subprocess.Popen(args, **kwargs)
     out, err = proc.communicate()
     return out
+    
 
 
 def main():
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
-    REmodifiedCpp = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
-    REmodifiedH = re.compile('^[AM]+\s+(?P<name>.*\.h)', re.MULTILINE)
+    REmodifiedCpp = re.compile('^[AM]+Odyssey+(?P<name>.*\.cpp)', re.MULTILINE)
+    REmodifiedH = re.compile('^[AM]+Odyssey+(?P<name>.*\.h)', re.MULTILINE)
 
     # We get all the .h and .cpp files ready for the hook
     modifiedHookedFiles = REmodifiedCpp.findall(allModifiedFiles)
@@ -33,7 +34,7 @@ def main():
     REtrailingSpaces = re.compile(".* $")
     REemptyLine = re.compile("\n$");
     
-    #We print all the files concerned by the hook
+    #We print each file concerned by the hook, followed by the modifications done on it
     print("Files hooked:")
 
     for filename in modifiedHookedFiles:
@@ -48,14 +49,13 @@ def main():
         if not( REcopyright.match(filedata) ) :
             print(Back.GREEN + '    ---- Line 1 - Adding the copyright' + Style.RESET_ALL)
             filedata = "// Copyright 2018 Praxinos, Inc. All Rights Reserved. \n" + filedata
+
             
         ## Checking the last empty line
         if not( REemptyLine.match(filedata) ) :
             print(Back.GREEN + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
             filedata = filedata + "\n"
 
-        ## Adding comments before any printf statement ?? //Warning but commit anyway
-        #filedata = filedata.replace('printf', '//printf') #not enough
 
         ## Replacing tabulations by four spaces (Check later if need to be more accurate than this, like replacing only tabulation at the beginning of lines, for example)
         splits = filedata.split("\n")
@@ -71,6 +71,7 @@ def main():
                 
             filedata = filedata + split
         
+
         ## Removing trailing spaces
         splits = filedata.split("\n")
         filedata = ""
