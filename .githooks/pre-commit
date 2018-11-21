@@ -53,6 +53,7 @@ def main():
             
         ## Checking the last empty line
         if not( REemptyLine.match(filedata) ) :
+            print(filedata)
             print(Back.GREEN + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
             filedata = filedata + "\n"
 
