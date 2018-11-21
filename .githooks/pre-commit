@@ -32,7 +32,7 @@ def main():
     REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
     REtabulations = re.compile(".*\t")
     REtrailingSpaces = re.compile(".* $")
-    REemptyLine = re.compile("\n+$");
+    REemptyLine = re.compile("$");
     
     #We print each file concerned by the hook, followed by the modifications done on it
     print("Files hooked:")
