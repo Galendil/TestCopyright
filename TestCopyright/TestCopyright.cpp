@@ -16,6 +16,3 @@ qsdqsdsqd
 sqs
 
 
-
-
-
