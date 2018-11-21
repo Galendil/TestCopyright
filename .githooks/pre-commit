@@ -53,7 +53,8 @@ def main():
         ## Replacing tabulations by four spaces in beginning of lines
         splits = filedata.split("\n")
         filedata = ""
-        for split in splits:
+        for id,split in enumerate(splits):
+            print(id)
             if( REtabulations.match(split) ):
                 split = re.sub(REtabulations, "    ", split)
                 print(split)
