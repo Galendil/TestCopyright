@@ -54,11 +54,14 @@ def main():
         splits = filedata.split("\n")
         filedata = ""
         for id,split in enumerate(splits):
+        
             if not (id == 0):
                 filedata = filedata + "\n"
+                
             if( REtabulations.match(split) ):
                 split = re.sub(REtabulations, "    ", split)
-                print(Back.CYAN + '    ---- Line ' + str (id+1) + ' - Replacing tabulations with spaces' + Style.RESET_ALL)        
+                print(Back.CYAN + '    ---- Line ' + str (id+1) + ' - Replacing tabulations with spaces' + Style.RESET_ALL)
+                
             filedata = filedata + split
         
         #-------------------------------------------------------
