@@ -34,10 +34,10 @@ def main():
     REemptyLine = re.compile("\n$");
     
     #We print all the files concerned by the hook
-    print("Files to check")
+    print("Files hooked:")
 
     for filename in modifiedHookedFiles:
-        print(filename)
+        print("\n" + filename)
         # Read in the file
         with open(filename, 'r') as file :
             filedata = file.read()
