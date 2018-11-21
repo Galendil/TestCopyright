@@ -44,7 +44,7 @@ def main():
 
         ## Checking the copyright
         if not( REcopyright.match(filedata) ) :
-            print(Back.GREEN + '    ---- Correction of the copyright' + Style.RESET_ALL)
+            print(Back.GREEN + '    ---- Line 1 - Correction of the copyright' + Style.RESET_ALL)
             filedata = "// Copyright 2018 Praxinos, Inc. All Rights Reserved. \n" + filedata
 
         ## Adding comments before any printf statement ?? //Warning but commit anyway
@@ -54,11 +54,10 @@ def main():
         splits = filedata.split("\n")
         filedata = ""
         for id,split in enumerate(splits):
-            print(id)
             if( REtabulations.match(split) ):
                 split = re.sub(REtabulations, "    ", split)
                 print(split)
-                print(Back.CYAN + '    ---- Replacing tabulations with spaces' + Style.RESET_ALL)        
+                print(Back.CYAN + '    ---- Line ' + str (id) + ' - Replacing tabulations with spaces' + Style.RESET_ALL)        
             filedata = filedata + split + "\n"
         
         #-------------------------------------------------------
