@@ -31,6 +31,7 @@ def main():
     REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
     REtabulations = re.compile(".*\t")
     REtrailingSpaces = re.compile(".* $")
+    REemptyLine = re.compile("\n$");
     
     #We print all the files concerned by the hook
     print("Files to check")
@@ -78,7 +79,11 @@ def main():
                 print(Back.MAGENTA + '    ---- Line ' + str (id+1) + ' - Removing trailing spaces' + Style.RESET_ALL)
         
             filedata = filedata + split
-            
+        
+        ## Checking the last empty line
+        if not( REemptyLine.match(filedata) ) :
+            print(Back.YELLOW + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
+            filedata = filedata + "\n"
 
         #-------------------------------------------------------
 
