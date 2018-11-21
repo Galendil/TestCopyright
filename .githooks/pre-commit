@@ -46,8 +46,13 @@ def main():
 
         ## Checking the copyright
         if not( REcopyright.match(filedata) ) :
-            print(Back.GREEN + '    ---- Line 1 - Correction of the copyright' + Style.RESET_ALL)
+            print(Back.GREEN + '    ---- Line 1 - Adding the copyright' + Style.RESET_ALL)
             filedata = "// Copyright 2018 Praxinos, Inc. All Rights Reserved. \n" + filedata
+            
+        ## Checking the last empty line
+        if not( REemptyLine.match(filedata) ) :
+            print(Back.GREEN + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
+            filedata = filedata + "\n"
 
         ## Adding comments before any printf statement ?? //Warning but commit anyway
         #filedata = filedata.replace('printf', '//printf') #not enough
@@ -62,7 +67,7 @@ def main():
                 
             if( REtabulations.match(split) ):
                 split = split.replace("\t", "    ")
-                print(Back.CYAN + '    ---- Line ' + str (id+1) + ' - Replacing tabulations with spaces' + Style.RESET_ALL)
+                print(Back.YELLOW + '    ---- Line ' + str (id+1) + ' - Replacing tabulations with spaces' + Style.RESET_ALL)
                 
             filedata = filedata + split
         
@@ -76,14 +81,9 @@ def main():
                 
             if( REtrailingSpaces.match(split) ):
                 split = split.rstrip()
-                print(Back.MAGENTA + '    ---- Line ' + str (id+1) + ' - Removing trailing spaces' + Style.RESET_ALL)
+                print(Back.RED + '    ---- Line ' + str (id+1) + ' - Removing trailing spaces' + Style.RESET_ALL)
         
             filedata = filedata + split
-        
-        ## Checking the last empty line
-        if not( REemptyLine.match(filedata) ) :
-            print(Back.YELLOW + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
-            filedata = filedata + "\n"
 
         #-------------------------------------------------------
 
@@ -92,7 +92,7 @@ def main():
             file.write(filedata)
         system( 'git', 'add', filename )
 
-    print("It worked")
+
     sys.exit(0)
 
 
