@@ -51,7 +51,8 @@ def main():
 
             
         ## Checking the last empty line
-        if not( filedata[-2:] == "\n" ) :
+        filedata = filedata + "\n"
+        if not( filedata[-1:] == "\n" ) :
             print(Back.GREEN + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
             filedata = filedata + "\n"
 
