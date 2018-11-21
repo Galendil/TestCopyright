@@ -24,7 +24,7 @@ def system(*args, **kwargs):
 def main():
     modified = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
     files = system('git', 'status', '--porcelain').decode('utf-8')
-    
+    print(files)
     #We print all the files concerned by the checks
     print("Files to check\n")
     files = modified.findall(files)
