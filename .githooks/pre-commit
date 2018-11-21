@@ -58,7 +58,7 @@ def main():
                 split = re.sub(REtabulations, '    ', split)
                 print(split)
                 print(Back.CYAN + '    ---- Replacing tabulations with spaces' + Style.RESET_ALL)        
-                filedata = filedata + split + "\n"
+            filedata = filedata + split + "\n"
         
         #-------------------------------------------------------
 
