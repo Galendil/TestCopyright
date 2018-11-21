@@ -18,15 +18,18 @@ def system(*args, **kwargs):
 
 
 def main():
-    modified = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
-    files = system('git', 'status', '--porcelain').decode('utf-8')
+    modifiedCpp = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
+    modifiedH = re.compile('^[AM]+\s+(?P<name>.*\.h)', re.MULTILINE)
+
+    allFiles = system('git', 'status', '--porcelain').decode('utf-8')
 
     #We print all the files concerned by the checks
     print("Files to check\n")
-    files = modified.findall(files)
-    print(files)
+    modifiedFiles = modifiedCpp.findall(allFiles)
+    modifiedFiles = modifiedFiles + modifiedH.findall(allFiles)
+    print(modifiedFiles)
 
-    for filename in files:
+    for filename in modifiedFiles:
         print(filename)
         # Read in the file
         with open(filename, 'r') as file :
