@@ -18,28 +18,30 @@ def system(*args, **kwargs):
 
 
 def main():
+
+    allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
     modifiedCpp = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
     modifiedH = re.compile('^[AM]+\s+(?P<name>.*\.h)', re.MULTILINE)
 
-    allFiles = system('git', 'status', '--porcelain').decode('utf-8')
+    # We get all the .h and .cpp files ready for the hook
+    modifiedHookedFiles = modifiedCpp.findall(allModifiedFiles)
+    modifiedHookedFiles = modifiedHookedFiles + modifiedH.findall(allModifiedFiles)
+    
+    #We print all the files concerned by the hook
+    print("Files to check")
 
-    #We print all the files concerned by the checks
-    print("Files to check\n")
-    modifiedFiles = modifiedCpp.findall(allFiles)
-    modifiedFiles = modifiedFiles + modifiedH.findall(allFiles)
-    print(modifiedFiles)
-
-    for filename in modifiedFiles:
+    for filename in modifiedHookedFiles:
         print(filename)
         # Read in the file
         with open(filename, 'r') as file :
             filedata = file.read()
 
-        #CONDITIONS TO CHECK BY READING THE FILE ---------------
+        #HOOK CONDITIONS ----------------------------------------
 
         ## Checking the copyright
         REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
         if not( REcopyright.match(filedata) ) :
+            print(Back.GREEN + '    ---- Correction of the copyright')
             filedata = "// Copyright 2018 Praxinos, Inc. All Rights Reserved. \n" + filedata
 
         ## Adding comments before any printf statement ?? //Warning but commit anyway
@@ -47,6 +49,7 @@ def main():
 
         ## Replacing tabulations by four spaces
         filedata = filedata.replace('\t', '    ')
+        print(Back.CYAN + '    ---- Replacing tabulations with spaces')
 
         #-------------------------------------------------------
 

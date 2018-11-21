@@ -1,5 +1,5 @@
 // Copyright 2018 Praxinos, Inc. All Rights Reserved. 
-// Conseils pour bien démarrer : 
+
 //   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
 //   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
 //   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
@@ -9,7 +9,7 @@
 qsdsqqsdqsd
 #ifndef PCH_Hqsdqsdqsdqsdqsdqsqsdqsd
 #define PCH_H
-
+                    
 // TODO: Ajoutez les en-têtes à précompiler ici
 
 #endif //PCH_H
