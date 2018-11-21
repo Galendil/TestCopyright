@@ -48,6 +48,8 @@ def main():
         #filedata = filedata.replace('printf', '//printf') #not enough
 
         ## Replacing tabulations by four spaces
+        splits = filedata.split("\n")
+        print (splits)
         filedata = filedata.replace('\t', '    ')
         print(Back.CYAN + '    ---- Replacing tabulations with spaces' + Style.RESET_ALL)
         
