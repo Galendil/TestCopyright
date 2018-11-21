@@ -41,7 +41,7 @@ def main():
         ## Checking the copyright
         REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
         if not( REcopyright.match(filedata) ) :
-            print(Back.GREEN + '    ---- Correction of the copyright')
+            print(Back.GREEN + '    ---- Correction of the copyright' + Style.RESET_ALL)
             filedata = "// Copyright 2018 Praxinos, Inc. All Rights Reserved. \n" + filedata
 
         ## Adding comments before any printf statement ?? //Warning but commit anyway
@@ -49,8 +49,9 @@ def main():
 
         ## Replacing tabulations by four spaces
         filedata = filedata.replace('\t', '    ')
-        print(Back.CYAN + '    ---- Replacing tabulations with spaces')
-
+        print(Back.CYAN + '    ---- Replacing tabulations with spaces' + Style.RESET_ALL)
+        
+        
         #-------------------------------------------------------
 
         # Write the file out again
