@@ -2,5 +2,6 @@
 int pied()
 {
        printdqsd  qsdqsdsf
+	   printf("lul");
 }
 qds
