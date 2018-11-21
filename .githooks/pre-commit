@@ -54,7 +54,7 @@ def main():
         ## Checking the last empty line
         if not( REemptyLine.match(filedata) ) :
             print(Back.GREEN + '    ---- Adding an empty line at the end of the file' + Style.RESET_ALL)
-            filedata = filedata + "\n"
+            filedata = filedata + "\r\n"
 
 
         ## Replacing tabulations by four spaces (Check later if need to be more accurate than this, like replacing only tabulation at the beginning of lines, for example)
