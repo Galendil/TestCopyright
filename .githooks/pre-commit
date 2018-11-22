@@ -104,7 +104,7 @@ def main():
         
     print("Unreal files hooked:")
     if (len(modifiedUnrealHookedFiles) == 0):
-        print( "\nNONE\n")
+        print( "\nNONE")
     for filename in modifiedUnrealHookedFiles:
         print("\n" + filename)
         # Read in the file
