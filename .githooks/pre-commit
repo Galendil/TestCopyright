@@ -19,6 +19,7 @@ def system(*args, **kwargs):
 
 
 def main():
+    print ("Starting hooks -------- ")
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
     REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.cpp)', re.MULTILINE)
@@ -118,7 +119,9 @@ def main():
         with open(filename, 'w') as file:
             file.write(filedata)
         system( 'git', 'add', filename )
+
         
+    print ("Ending hooks -------- ")
     sys.exit(0)
 
 
