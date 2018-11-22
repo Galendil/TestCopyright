@@ -21,8 +21,8 @@ def system(*args, **kwargs):
 def main():
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
-    REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
-    REmodifiedOdysseyH = re.compile('^[AM]+\s+(?P<name>.*\.h)', re.MULTILINE)
+    REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.cpp)', re.MULTILINE)
+    REmodifiedOdysseyH = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.h)', re.MULTILINE)
     
     REmodifiedUnrealCpp = re.compile('^[AM]+\s+(?P<name>Engine/Source.*\.cpp)', re.MULTILINE)
     REmodifiedUnrealCs = re.compile('^[AM]+\s+(?P<name>Engine/Source.*\.cs)', re.MULTILINE)
@@ -33,7 +33,7 @@ def main():
     print( modifiedOdysseyHookedFiles )
     
     # We get all the .h and .cpp and .cs files ready for the hook in Unreal
-    modifiedUnrealHookedFiles = REmodifiedUnrealCpp.findall(allModifiedFiles) + REmodifiedUnrealCs.findall(allModifiedFiles) + REmodifiedOdysseyH.findall(allModifiedFiles)
+    modifiedUnrealHookedFiles = list(set(REmodifiedUnrealCpp.findall(allModifiedFiles) + REmodifiedUnrealCs.findall(allModifiedFiles) + REmodifiedOdysseyH.findall(allModifiedFiles)) - set(modifiedOdysseyHookedFiles))
     print( modifiedUnrealHookedFiles )
     
     # Regular expressions used for the hooks
