@@ -21,12 +21,18 @@ def system(*args, **kwargs):
 def main():
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
-    REmodifiedCpp = re.compile('^[AM]+\s+(?P<name>Odyssey.*\.cpp)', re.MULTILINE)
-    REmodifiedH = re.compile('^[AM]+\s+(?P<name>Odyssey.*\.h)', re.MULTILINE)
-
-    # We get all the .h and .cpp files ready for the hook
-    modifiedHookedFiles = REmodifiedCpp.findall(allModifiedFiles)
-    modifiedHookedFiles = modifiedHookedFiles + REmodifiedH.findall(allModifiedFiles)
+    REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine\\Source\\\Odyssey.*\.cpp)', re.MULTILINE)
+    REmodifiedOdysseyH = re.compile('^[AM]+\s+(?P<name>Engine\\Source\\\Odyssey.*\.h)', re.MULTILINE)
+    
+    REmodifiedUnrealCpp = re.compile('^[AM]+\s+(?P<name>Engine\\Source.*\.cpp)', re.MULTILINE)
+    REmodifiedUnrealCs = re.compile('^[AM]+\s+(?P<name>Engine\\Source.*\.cs)', re.MULTILINE)
+    REmodifiedUnrealH = re.compile('^[AM]+\s+(?P<name>Engine\\Source.*\.h)', re.MULTILINE)
+    
+    # We get all the .h and .cpp files ready for the hook in Odyssey
+    modifiedOdysseyHookedFiles = REmodifiedOdysseyCpp.findall(allModifiedFiles) + REmodifiedOdysseyH.findall(allModifiedFiles)
+    
+    # We get all the .h and .cpp and .cs files ready for the hook in Unreal
+    modifiedUnrealHookedFiles = REmodifiedUnrealCpp.findall(allModifiedFiles) + REmodifiedUnrealCs.findall(allModifiedFiles) + REmodifiedOdysseyH.findall(allModifiedFiles)
     
     # Regular expressions used for the hooks
     REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
@@ -36,7 +42,7 @@ def main():
     #We print each file concerned by the hook, followed by the modifications done on it
     print("Files hooked:")
 
-    for filename in modifiedHookedFiles:
+    for filename in modifiedOdysseyHookedFiles:
         print("\n" + filename)
         # Read in the file
         with open(filename, 'r') as file :
