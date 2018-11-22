@@ -7,7 +7,7 @@ main()
 }dqsdqsdqsdcqsdsqd
 qdsihidhqsddqsdqsqsdsq
 qsddqsdsq
-            dqqsqsdqsdsqsdqsdoazeaejqsdqsdd dqsdqsdqsdsqdqsdqsdqs\nsuhzd
+            dqqsqsdqsdsqsdqsdsqdqsdoazeaejqsdqsdd dqsdqsdqsdsqdqsdqsdqs\nsuhzd
 dqsdqsdfsdfsdazdazdqsd
 
 qsdqsdqsd
