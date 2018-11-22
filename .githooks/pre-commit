@@ -24,9 +24,9 @@ def main():
     REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>.*\.cpp)', re.MULTILINE)
     REmodifiedOdysseyH = re.compile('^[AM]+\s+(?P<name>.*\.h)', re.MULTILINE)
     
-    REmodifiedUnrealCpp = re.compile('^[AM]+\s+(?P<name>Engine\\Source\\.*.cpp)', re.MULTILINE)
-    REmodifiedUnrealCs = re.compile('^[AM]+\s+(?P<name>Engine\\Source\\.*.cs)', re.MULTILINE)
-    REmodifiedUnrealH = re.compile('^[AM]+\s+(?P<name>Engine\\Source\\.*.h)', re.MULTILINE)
+    REmodifiedUnrealCpp = re.compile('^[AM]+\s+(?P<name>Engine\\Source.*\.cpp)', re.MULTILINE)
+    REmodifiedUnrealCs = re.compile('^[AM]+\s+(?P<name>Engine\\Source.*\.cs)', re.MULTILINE)
+    REmodifiedUnrealH = re.compile('^[AM]+\s+(?P<name>Engine\\Source.*\.h)', re.MULTILINE)
     
     # We get all the .h and .cpp files ready for the hook in Odyssey
     modifiedOdysseyHookedFiles = REmodifiedOdysseyCpp.findall(allModifiedFiles) + REmodifiedOdysseyH.findall(allModifiedFiles)
