@@ -21,8 +21,8 @@ def system(*args, **kwargs):
 def main():
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
-    REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine\\Source\\\Odyssey.*\.cpp)', re.MULTILINE)
-    REmodifiedOdysseyH = re.compile('^[AM]+\s+(?P<name>Engine\\Source\\\Odyssey.*\.h)', re.MULTILINE)
+    REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine.*\.cpp)', re.MULTILINE)
+    REmodifiedOdysseyH = re.compile('^[AM]+\s+(?P<name>Engine.*\.h)', re.MULTILINE)
     
     REmodifiedUnrealCpp = re.compile('^[AM]+\s+(?P<name>Engine\\Source.*\.cpp)', re.MULTILINE)
     REmodifiedUnrealCs = re.compile('^[AM]+\s+(?P<name>Engine\\Source.*\.cs)', re.MULTILINE)
@@ -50,7 +50,7 @@ def main():
         with open(filename, 'r') as file :
             filedata = file.read()
 
-        #HOOK CONDITIONS ----------------------------------------
+        #HOOK CHECKS ------------------------------------------------------------------------------------------------------------
 
         ## Checking the copyright
         if not( REcopyright.match(filedata) ) :
@@ -93,7 +93,7 @@ def main():
         
             filedata = filedata + split
 
-        #-------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------------
 
         # Write the file out again
         with open(filename, 'w') as file:

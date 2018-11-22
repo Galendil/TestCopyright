@@ -10,6 +10,7 @@ qsfsqf
             dqsojd dqsdqsdqsqdqsd\nsuhzd
 dqsdqsd
 
+            printf("    ygsgyfguq   ")                          
 
 qsds
 qsdqsdqsd
