@@ -19,7 +19,7 @@ def system(*args, **kwargs):
 
 
 def main():
-    print ("Starting hooks ------------------------------\n ")
+    print ("Starting hooks --------------------------------------\n ")
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
     REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.cpp)', re.MULTILINE)
