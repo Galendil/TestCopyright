@@ -42,7 +42,8 @@ def main():
     
     #We print each file concerned by the hook, followed by the modifications done on it
     print("Odyssey files hooked:")
-
+    if (len(modifiedOdysseyHookedFiles) == 0):
+        print( "\nNONE\n")
     for filename in modifiedOdysseyHookedFiles:
         print("\n" + filename)
         # Read in the file
@@ -102,7 +103,8 @@ def main():
         
         
     print("Unreal files hooked:")
-
+    if (len(modifiedUnrealHookedFiles) == 0):
+        print( "\nNONE\n")
     for filename in modifiedUnrealHookedFiles:
         print("\n" + filename)
         # Read in the file
