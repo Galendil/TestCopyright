@@ -30,11 +30,9 @@ def main():
     
     # We get all the .h and .cpp files ready for the hook in Odyssey
     modifiedOdysseyHookedFiles = REmodifiedOdysseyCpp.findall(allModifiedFiles) + REmodifiedOdysseyH.findall(allModifiedFiles)
-    print( modifiedOdysseyHookedFiles )
     
     # We get all the .h and .cpp and .cs files ready for the hook in Unreal
     modifiedUnrealHookedFiles = list(set(REmodifiedUnrealCpp.findall(allModifiedFiles) + REmodifiedUnrealCs.findall(allModifiedFiles) + REmodifiedOdysseyH.findall(allModifiedFiles)) - set(modifiedOdysseyHookedFiles))
-    print( modifiedUnrealHookedFiles )
     
     # Regular expressions used for the hooks
     REcopyright = re.compile("^// Copyright 2018 Praxinos, Inc. All Rights Reserved.")
@@ -42,7 +40,7 @@ def main():
     REtrailingSpaces = re.compile(".* $")
     
     #We print each file concerned by the hook, followed by the modifications done on it
-    print("Files hooked:")
+    print("Odyssey files hooked:")
 
     for filename in modifiedOdysseyHookedFiles:
         print("\n" + filename)
@@ -50,7 +48,7 @@ def main():
         with open(filename, 'r') as file :
             filedata = file.read()
 
-        #HOOK CHECKS ------------------------------------------------------------------------------------------------------------
+        #ODYSSEY HOOK CHECKS ------------------------------------------------------------------------------------------------------------
 
         ## Checking the copyright
         if not( REcopyright.match(filedata) ) :
@@ -93,14 +91,34 @@ def main():
         
             filedata = filedata + split
 
-        #---------------------------------------------------------------------------------------------------------------------
+        #--------------------------------------------------------------------------------------------------------------------------------
 
         # Write the file out again
         with open(filename, 'w') as file:
             file.write(filedata)
         system( 'git', 'add', filename )
 
+        
+        
+    print("Unreal files hooked:")
 
+    for filename in modifiedUnrealHookedFiles:
+        print("\n" + filename)
+        # Read in the file
+        with open(filename, 'r') as file :
+            filedata = file.read()
+            
+        #UNREAL HOOK CHECKS -------------------------------------------------------------------------------------------------------------
+        
+        
+        
+        #--------------------------------------------------------------------------------------------------------------------------------
+
+        # Write the file out again
+        with open(filename, 'w') as file:
+            file.write(filedata)
+        system( 'git', 'add', filename )
+        
     sys.exit(0)
 
 
