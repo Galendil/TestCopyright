@@ -197,16 +197,7 @@ def main():
             
         filedata = filedata[:-1] #We get rid of the last \n added by the reversed algorithm
 
-        #We get rid of the side to side balises
-        splits = filedata.split("\n")
-        filedata = ""
-        for id,split in enumerate(splits):
-            if not (id == (len(splits) - 2) ):
-                if( REchangedBegin.match(splits[id]) ) and (REchangedEnd.match(splits[id+1]) ):
-                    splits[id] = ""
-                    splits[id+1] = ""
-                else:
-                    filedata = filedata + split + "\n"
+
 
         
         #--------------------------------------------------------------------------------------------------------------------------------
