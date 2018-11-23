@@ -143,6 +143,7 @@ def main():
         for id,diff in enumerate(diffModifiedFileParsed):
             diff = diff.split("\n")
             encounteredDiff = False
+            beginLines[id]-=1 #We compensate the first line of the diff which gives us the infos of the number of lines
             for line in diff:
                 print(line)
                 if( REremovedLine.match(line) ):
