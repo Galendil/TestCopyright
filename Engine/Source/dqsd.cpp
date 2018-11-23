@@ -11,17 +11,15 @@ qsqsdqdqsdqsdsdd
 qsdqsd
     public UE4CzerezqsdqsdqsdrlientTarget(TargetInfo Target) : base(Target)
 	{qsdqsdqsdqsd
-//PRAXINOS: CHANGED END
 //PRAXINOS: CHANGED BEGIN
-		Type = TargqsdqsdqsdqsdqsdsqdzerzeretType.Client;
-//PRAXINOS: CHANGED END
-//PRAXINOS: CHANGED BEGIN
+dqsds
 qsdqsddqsdqsd
 qsdqsd
 
 
 qsqsdqsddqsdqsdqsdqsd
 qsdqsdqsdqs
-qsdqsdqsd
+qsdqsdqsqsdqsdsd
+//PRAXINOS: CHANGED END
 
 
