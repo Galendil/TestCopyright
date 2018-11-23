@@ -144,6 +144,7 @@ def main():
             diff = diff.split("\n")
             encounteredDiff = False
             beginLines[id]-=1 #We compensate the first line of the diff which gives us the infos of the number of lines
+            countLine = beginLines[id]
             for line in diff:
                 print("begin:" + str(beginLines[id]))
                 print("end:" + str(endLines[id]))
@@ -152,17 +153,15 @@ def main():
                     encounteredDiff = True
                     endLines[id]=beginLines[id]
                 elif( REaddedLine.match(line) ) and not (encounteredDiff):
-                    print("match added")
                     beginLines[id]+=1
                     endLines[id]=beginLines[id]
                     encounteredDiff = True
                 elif( REaddedLine.match(line) ) and (encounteredDiff):
-                    print("match added")
-                    endLines[id]+=1
+                    endLines[id]+=countLine
                 elif not (encounteredDiff):
                     beginLines[id]+=1
-                elif(encounteredDiff):
-                    endLines[id]+=1
+                 
+                countLine+=1
                     
 
         
