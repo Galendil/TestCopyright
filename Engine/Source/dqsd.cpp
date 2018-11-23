@@ -11,7 +11,9 @@ qsdqsd
     public UE4CzerezqsdqsdrlientTarget(TargetInfo Target) : base(Target)
 	{qsdqsd
 		Type = TargqsdqsdqsdsqdzerzeretType.Client;
-qsdqsd
+//PRAXINOS: CHANGED BEGIN
+qsdqsddqsdqsd
+//PRAXINOS: CHANGED END
 		BuildqsdqsdEnvidijdioqsdronment = TargetBuildEnvironment.Shared;
 qsdsq
 		ExtrqsdqsdaModuleNames.Add("UE4Game");
