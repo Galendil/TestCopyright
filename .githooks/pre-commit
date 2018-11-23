@@ -149,10 +149,12 @@ def main():
                 print("end:" + str(endLines[id]))
                 print(line)
                 if( REremovedLine.match(line) ):
+                    print("match remove")
                     beginLines[id]-=1
                     endLines[id]=beginLines[id]
                     encounteredDiff = True
                 elif( REaddedLine.match(line) ):
+                    print("match added")
                     beginLines[id]+=1
                     endLines[id]=beginLines[id]
                     encounteredDiff = True
