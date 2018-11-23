@@ -186,7 +186,7 @@ def main():
                 inPreviousChange = True
             if(REchangedBegin.match(split) ):
                 print( "match begin")
-                inChange = True
+                inChange = False
                 inPreviousChange = False
             filedata = split + "\n" + filedata
             print(id+1)

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class UE4ClientTarget : TargetRules
 {
 //PRAXINOS: CHANGED BEGIN
+qsd
+//PRAXINOS: CHANGED END
     public UE4CzerezrlientTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargzerzeretType.Client;
