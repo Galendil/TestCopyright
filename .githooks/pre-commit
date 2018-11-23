@@ -110,7 +110,7 @@ def main():
         print("\n" + filename)
 
         file = "Engine/Source/dqsd.cpp"
-        diffModifiedFiles = system('git', 'diff', '--minimal' ).decode('utf-8')
+        diffModifiedFiles = system('git', 'diff', '--cached', filename ).decode('utf-8')
         print("ICI")
 
         print(diffModifiedFiles + '\n')
