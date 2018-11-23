@@ -22,6 +22,9 @@ def main():
     print ("Starting hooks --------------------------------------\n ")
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
+    diffModifiedFiles = system('git', 'diff', '--minimal').decode('utf-8')
+    print(diffModifiedFiles)
+    
     REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.cpp)', re.MULTILINE)
     REmodifiedOdysseyH = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.h)', re.MULTILINE)
     
