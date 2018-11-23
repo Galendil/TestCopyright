@@ -142,9 +142,9 @@ def main():
         
         for id,diff in enumerate(diffModifiedFileParsed):
             diff = diff.split("\n")
+            encounteredDiff = False
             for line in diff:
                 print(line)
-                encounteredDiff = False
                 if( REremovedLine.match(line) ):
                     beginLines[id]-=1
                     encounteredDiff = True
