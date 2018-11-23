@@ -128,11 +128,16 @@ def main():
         REbeginLines = re.compile('@@.*\+(?P<number>[0-9]+),[0-9]+ @@', re.MULTILINE)
         REnumberLines = re.compile('@@.*\+[0-9]+,(?P<number>[0-9]+) @@', re.MULTILINE)
         
-        beginLines = REbeginLines.findall(diffModifiedFileRaw)
-        numberLines = REnumberLines.findall(diffModifiedFileRaw)        
+        beginLines = REbeginLines.findall(diffModifiedFileRaw) #The lines at which we except a balise //PRAXINOS: CHANGED BEGIN
+        numberLines = REnumberLines.findall(diffModifiedFileRaw) #The number of lines of the diff output
+        endLines = beginLines #The lines at which we except a balise //PRAXINOS: CHANGED END
+        
+        REremovedLine = re.compile('@@.*\+(?P<number>[0-9]+),[0-9]+ @@', re.MULTILINE)
+        REaddedLine = re.compile('@@.*\+[0-9]+,(?P<number>[0-9]+) @@', re.MULTILINE)        
 
         print(beginLines)
         print(numberLines)
+        
         
         
         for id,diff in enumerate(diffModifiedFileParsed):
