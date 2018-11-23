@@ -166,7 +166,7 @@ def main():
         
         splits = filedata.split("\n")
         filedata = ""
-        for id,split in enumerate(splits):
+        for id,split in reversed(list(enumerate(splits))):
             print(id)
 
         
