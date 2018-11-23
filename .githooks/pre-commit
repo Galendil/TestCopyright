@@ -171,10 +171,10 @@ def main():
         filedata = ""
         inChange = False
         for id,split in reversed(list(enumerate(splits))):
-            if( (id+1) in endLines ):
+            if( id in endLines ):
                 inChange = True
                 filedata = "//PRAXINOS: CHANGED END\n" + filedata
-            if( (id+1) in beginLines ):
+            if( id in beginLines ):
                 inChange = False
                 filedata = "//PRAXINOS: CHANGED BEGIN\n" + filedata
             if( inChange ) and ( REchangedEnd.match(split)):
