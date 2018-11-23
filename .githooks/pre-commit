@@ -145,9 +145,9 @@ def main():
             encounteredDiff = False
             beginLines[id]-=1 #We compensate the first line of the diff which gives us the infos of the number of lines
             for line in diff:
-                print(line)
                 print("begin:" + str(beginLines[id]))
                 print("end:" + str(endLines[id]))
+                print(line)
                 if( REremovedLine.match(line) ):
                     beginLines[id]-=1
                     endLines[id]=beginLines[id]
