@@ -23,6 +23,7 @@ def main():
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
     diffModifiedFiles = system('git', 'diff', '--minimal').decode('utf-8')
+    print("cLA")
     print(diffModifiedFiles)
     
     REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.cpp)', re.MULTILINE)
