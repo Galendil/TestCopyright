@@ -152,9 +152,9 @@ def main():
                 if( REremovedLine.match(line) ) and not (encounteredDiff):
                     encounteredDiff = True
                     endLines[id]=beginLines[id]
-                    countLine=-1
+                    countLine-=1
                 elif( REremovedLine.match(line) ) and (encounteredDiff):
-                    countLine=-1
+                    countLine-=1
                 elif( REaddedLine.match(line) ) and not (encounteredDiff):
                     beginLines[id]+=1
                     endLines[id]=beginLines[id]
