@@ -6,10 +6,12 @@ using System.Collections.Generic;
 public class UE4ClientTarget : TargetRules
 {
 
-qsqsdqsdd
+//PRAXINOS: CHANGED BEGIN
+qsqsdqdqsdqsdsdd
 qsdqsd
-    public UE4CzerezqsdqsdrlientTarget(TargetInfo Target) : base(Target)
-	{qsdqsd
+    public UE4CzerezqsdqsdqsdrlientTarget(TargetInfo Target) : base(Target)
+	{qsdqsdqsdqsd
+//PRAXINOS: CHANGED END
 		Type = TargqsdqsdqsdsqdzerzeretType.Client;
 //PRAXINOS: CHANGED BEGIN
 qsdqsddqsdqsd
