@@ -121,11 +121,13 @@ def main():
         #Change balise hook : //PRAXINOS: CHANGED BEGIN and //PRAXINOS: CHANGED END
         #We keep the diff and we do a regex to isolate chunks of changes, so we can add the balises at the right spots
         diffModifiedFile = system('git', 'diff', '--cached', filename ).decode('utf-8')
+        print(diffModifiedFile)
         
-        REbeginLine = re.compile('@@.*\+(?P<number>[0-9]+)', re.MULTILINE)
+        #The regex to get the line where the chunk of changes begins and the number of lines of the chunk
+        REbeginLines = re.compile('@@.*\+(?P<number>[0-9]+)', re.MULTILINE)
         REnumberLines = re.compile('@@.*\+[0-9]+,(?P<number>[0-9]+)', re.MULTILINE)
         
-        beginLine = REbeginLine.findall(diffModifiedFile)
+        beginLines = REbeginLines.findall(diffModifiedFile)
         numberLines = REnumberLines.findall(diffModifiedFile)
         
         print(beginLine)
