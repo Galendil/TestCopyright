@@ -172,6 +172,8 @@ def main():
             filedata = split + "\n" + filedata
             print(id+1)
             print(split)
+            
+        filedata = filedata[:-1] #We get rid of the last \n added by the reversed algorithm
 
 
         
