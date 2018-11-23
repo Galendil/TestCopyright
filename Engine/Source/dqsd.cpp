@@ -9,8 +9,8 @@ public class UE4ClientTarget : TargetRules
 qsqsdqsdd
 qsdqsd
     public UE4CzerezqsdqsdrlientTarget(TargetInfo Target) : base(Target)
-	{
-		Type = TargqsdqsdzerzeretType.Client;
+	{qsdqsd
+		Type = TargqsdqsdqsdsqdzerzeretType.Client;
 qsdqsd
 		BuildqsdqsdEnvidijdioqsdronment = TargetBuildEnvironment.Shared;
 
@@ -20,7 +20,7 @@ qsdqsd
 }
 //PRAXINOS: CHANGED BEGIN
 sqdqsd
-qsdqsdqsd
-qsdqsdsdqs
+qsdqsdqsdqsdqsd
+qsdqsdsdqsqsdqsd
 qsdqsdqsd
 //PRAXINOS: CHANGED END
