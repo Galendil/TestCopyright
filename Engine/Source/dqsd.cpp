@@ -47,8 +47,8 @@ sdff
 sdffsqfsdfsdfsqsdqsd
 datafs
 datafssd
-fabqsdqsdqsdqsdsqsqsdqsddqqsdqsdqdsdqsdqsdqsdqsdqsddqsdqsdsdqsdqsdqsdfsqdqsdqsdqsdsdqsdqsdqsqsdqsddqsdqsd
-// Vous pouvez en généraqqsdqsdsdqsdqsdqsdl ignorer ce fichier, mais gardez-le si vous utilisez des en-têtes précompilés.
+fabqsdqsdqsqsdqsddqsdsqsqsdqsddqqsdqsdqdsdqsdqsdqsdqsdqsddqsdqsdsdqsdqsdqsdfsqdqsdqsdqsdsdqsdqsdqsqsdqsddqsdqsd
+// Vous pouveqsdqsdqsz en généraqqsdqsdsdqsdqsdqsdl ignorer ce fichier, mais gardez-le si vous utilisez des en-têtes précompilés.
 dqsddqsdqsd
 ancqsdqsdhoqsdqsdisqsdqsdqsd            qsdqsd
 qsdsqdqsddqzdfsdf
