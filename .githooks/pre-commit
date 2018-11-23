@@ -167,10 +167,12 @@ def main():
         REremovedLine = re.compile('-.*')
         
         splits = filedata.split("\n")
-
+        filedata = ""
         for id,split in reversed(list(enumerate(splits))):
-            print(split)
+            filedata = split + "\n" + filedata
             print(id+1)
+            print(split)
+
 
         
         #--------------------------------------------------------------------------------------------------------------------------------
