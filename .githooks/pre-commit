@@ -123,20 +123,27 @@ def main():
         REdiff = re.compile('(?P<diff>@@.*@@[^@]*)')
         diffModifiedFileRaw = system('git', 'diff', '--cached', filename ).decode('utf-8') #The raw diff
         diffModifiedFileParsed = REdiff.findall(diffModifiedFileRaw) #The diff where only the chunks of changes are conserved
-        for diff in diffModifiedFileParsed:
-            diff = diff.split("\n")
-            for line in diff:
-                print (line)
-        
+
         #The regex to get the line where the chunk of changes begins and the number of lines of the chunk
         REbeginLines = re.compile('@@.*\+(?P<number>[0-9]+),[0-9]+ @@', re.MULTILINE)
         REnumberLines = re.compile('@@.*\+[0-9]+,(?P<number>[0-9]+) @@', re.MULTILINE)
         
         beginLines = REbeginLines.findall(diffModifiedFileRaw)
-        numberLines = REnumberLines.findall(diffModifiedFileRaw)
-        
+        numberLines = REnumberLines.findall(diffModifiedFileRaw)        
+
         print(beginLines)
         print(numberLines)
+        
+        
+        
+        for diff in diffModifiedFileParsed:
+            diff = diff.split("\n")
+            for line in diff:
+                print (line)
+        
+
+        
+
         
         #--------------------------------------------------------------------------------------------------------------------------------
 
