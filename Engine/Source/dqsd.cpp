@@ -13,20 +13,7 @@ qsdqsd
 		Type = TargqsdqsdqsdsqdzerzeretType.Client;
 //PRAXINOS: CHANGED BEGIN
 qsdqsddqsdqsd
-//PRAXINOS: CHANGED END
-		BuildqsdqsdEnvidijdioqsdrosqdqsdqsnment = TargetBuildEnvironment.Shared;
-//PRAXINOS: CHANGED BEGIN
-qsdsqdqsddqsdqsdsqdqsdqsd
-//PRAXINOS: CHANGED END
-
-//PRAXINOS: CHANGED BEGIN
-
-
-
-
-//PRAXINOS: CHANGED END
-//PRAXINOS: CHANGED BEGIN
-dqsdqsd
+qsdqsd
 
 
 qsdqsdqsdqsdqsd
