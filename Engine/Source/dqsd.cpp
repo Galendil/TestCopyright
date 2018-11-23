@@ -5,9 +5,10 @@ using System.Collections.Generic;
 
 public class UE4ClientTarget : TargetRules
 {
-    public UE4ClientTarget(TargetInfo Target) : base(Target)
+//PRAXINOS: CHANGED BEGIN
+    public UE4CzerezrlientTarget(TargetInfo Target) : base(Target)
 	{
-		Type = TargetType.Client;
+		Type = TargzerzeretType.Client;
 		BuildEnvironment = TargetBuildEnvironment.Shared;
 		ExtraModuleNames.Add("UE4Game");
 	}
