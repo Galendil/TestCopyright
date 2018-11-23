@@ -12,4 +12,6 @@ public class UE4ClientTarget : TargetRules
 		ExtraModuleNames.Add("UE4Game");
 	}
 }
+//PRAXINOS: CHANGED BEGIN
+
 //PRAXINOS: CHANGED END
