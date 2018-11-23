@@ -148,12 +148,17 @@ def main():
                 print(line)
                 if( REremovedLine.match(line) ):
                     beginLines[id]-=1
+                    endLines[id]=beginLines[id]
                     encounteredDiff = True
                 elif( REaddedLine.match(line) ):
                     beginLines[id]+=1
+                    endLines[id]=beginLines[id]
                     encounteredDiff = True
                 elif not (encounteredDiff):
                     beginLines[id]+=1
+                else:
+                    endLines[id]+=1
+                    
             print(beginLines[id])
         
 
