@@ -157,7 +157,7 @@ def main():
                     endLines[id]=beginLines[id]
                     encounteredDiff = True
                 elif( REaddedLine.match(line) ) and (encounteredDiff):
-                    endLines[id]+=countLine
+                    endLines[id]=countLine
                 elif not (encounteredDiff):
                     beginLines[id]+=1
                  
