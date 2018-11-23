@@ -132,8 +132,8 @@ def main():
         numberLines = list(map(int,REnumberLines.findall(diffModifiedFileRaw))) #The number of lines of the diff output
         endLines = beginLines #The lines at which we except a balise //PRAXINOS: CHANGED END
         
-        REremovedLine = re.compile('\-.*', re.MULTILINE)
-        REaddedLine = re.compile('\+.*', re.MULTILINE)
+        REremovedLine = re.compile('\-.*')
+        REaddedLine = re.compile('\+.*')
 
         print(beginLines)
         print(numberLines)
@@ -146,6 +146,8 @@ def main():
             beginLines[id]-=1 #We compensate the first line of the diff which gives us the infos of the number of lines
             for line in diff:
                 print(line)
+                print("begin:" + str(beginLines[id]))
+                print("end:" + str(endLines[id]))
                 if( REremovedLine.match(line) ):
                     beginLines[id]-=1
                     endLines[id]=beginLines[id]
@@ -159,8 +161,7 @@ def main():
                 else:
                     endLines[id]+=1
                     
-            print(beginLines[id])
-            print(endLines[id])
+
         
 
         
