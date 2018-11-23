@@ -164,11 +164,25 @@ def main():
         print(beginLines)
         print(endLines)
 
-        REremovedLine = re.compile('-.*')
+        REchangedEnd = re.compile('^//PRAXINOS: CHANGED END$')
+        REchangedBegin = re.compile('^//PRAXINOS: CHANGED BEGIN$')
         
         splits = filedata.split("\n")
         filedata = ""
+        inChange = False
         for id,split in reversed(list(enumerate(splits))):
+            if( (id+1) in endLines ):
+                inChange = True
+                filedata = "//PRAXINOS: CHANGED END\n" + filedata
+            if( (id+1) in beginLines ):
+                inChange = False
+                filedata = "//PRAXINOS: CHANGED BEGIN\n" + filedata
+            if( inChange ) and ( REchangedEnd.match(split)):
+                split = ""
+                print("matchedEND")
+            if( inChange ) and ( REchangedEnd.match(split)):
+                split = ""
+                print("matchedBEGIN")
             filedata = split + "\n" + filedata
             print(id+1)
             print(split)
