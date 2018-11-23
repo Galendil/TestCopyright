@@ -120,7 +120,7 @@ def main():
         
         #Change balise hook : //PRAXINOS: CHANGED BEGIN and //PRAXINOS: CHANGED END
         #We keep the diff and we do a regex to isolate chunks of changes, so we can add the balises at the right spots
-        REdiff = re.compile('(?P<diff>@@.*@@[\n\r\s\S+-]*)')
+        REdiff = re.compile('(?P<diff>@@.*@@[\s\w+-]*)')
         diffModifiedFile = system('git', 'diff', '--cached', filename ).decode('utf-8')
         diffModifiedFile2 = REdiff.findall(diffModifiedFile)
         print(diffModifiedFile)
