@@ -8,13 +8,10 @@ main()
 qdsihidhqsddqsdqsqsdsq
 qsd
 //PRAXINOS: CHANGED BEGIN
-            dqqsqsdqsJ'aubduigsqyqsdqsdudqisjddsqsdqsdoazeaejqsdqsdd dqsdqsdqsdsqdqsdqsdqs\nsuhzd
-//PRAXINOS: CHANGED BEGIN
-dqsdqsdfsqsdqsfuuishfdqsddfsd
-//PRAXINOS: CHANGED END
-
-qsdqsdqsd
-qsddqsqsdqsdqsdd
+uihufhqusihfushfuihqsufhqiushfuqshf
+qsuhfiuqsf
+squhfiuqhsf
+uhsquifhiuqsf
 //PRAXINOS: CHANGED END
 qsdqsdsqd
 sqssqdqsd
