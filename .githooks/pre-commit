@@ -126,7 +126,7 @@ def main():
         print(diffModifiedFileParsed)
         
         #The regex to get the line where the chunk of changes begins and the number of lines of the chunk
-        REbeginLines = re.compile('@@.*\+(?P<number>[0-9]+) @@', re.MULTILINE)
+        REbeginLines = re.compile('@@.*\+(?P<number>[0-9]+),[0-9]+ @@', re.MULTILINE)
         REnumberLines = re.compile('@@.*\+[0-9]+,(?P<number>[0-9]+) @@', re.MULTILINE)
         
         beginLines = REbeginLines.findall(diffModifiedFileRaw)
