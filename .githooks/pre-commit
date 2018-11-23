@@ -22,7 +22,7 @@ def main():
     print ("Starting hooks --------------------------------------\n ")
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
-    diffModifiedFiles = system('git', 'diff', '--minimal').decode('utf-8')
+    diffModifiedFiles = system('git', 'diff', '--minimal')
     print("cLA")
     print(diffModifiedFiles)
     
