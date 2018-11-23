@@ -202,9 +202,8 @@ def main():
         filedata = ""
         for id,split in enumerate(splits):
             if not (id == (len(splits) - 2) ):
-                print (splits[id])
-                print (splits[id+1])
                 if( REchangedBegin.match(splits[id]) ) and (REchangedEnd.match(splits[id+1]) ):
+                    print("entered")
                     splits[id] = ""
                     splits[id+1] = ""
                 else:
