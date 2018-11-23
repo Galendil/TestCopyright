@@ -108,7 +108,7 @@ def main():
         print( "\nNONE")
     for filename in modifiedUnrealHookedFiles:
         print("\n" + filename)
-        diffModifiedFiles = system('git', 'diff', '--minimal', filename ).decode('utf-8')
+        diffModifiedFiles = system('git', 'diff', '--minimal', str(filename) ).decode('utf-8')
         print("ICI")
         print(diffModifiedFiles + '\n')
         # Read in the file
