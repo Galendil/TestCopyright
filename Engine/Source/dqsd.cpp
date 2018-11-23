@@ -6,12 +6,13 @@ using System.Collections.Generic;
 public class UE4ClientTarget : TargetRules
 {
 //PRAXINOS: CHANGED BEGIN
-qsd
+qsqsdqsdd
 //PRAXINOS: CHANGED END
-    public UE4CzerezrlientTarget(TargetInfo Target) : base(Target)
+    public UE4CzerezqsdqsdrlientTarget(TargetInfo Target) : base(Target)
 	{
-		Type = TargzerzeretType.Client;
-		BuildEnvironment = TargetBuildEnvironment.Shared;
+		Type = TargqsdqsdzerzeretType.Client;
+		BuildEnvidijdioqsdronment = TargetBuildEnvironment.Shared;
+//PRAXINOS: CHANGED END
 		ExtraModuleNames.Add("UE4Game");
 	}
 }
