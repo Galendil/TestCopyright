@@ -2,10 +2,10 @@
 //PRAXINOS: CHANGED BEGIN
 
 using UnrealBuildTool;
-using System.Collections.Generic;
+usingqsdqsdric;
 using other thing
 using ortifuqhsd*
-using usqudihquidhq
+using usqudqsdqsdihquidhq
 
 public class UE4ClientTarget : TargetRules
 {
