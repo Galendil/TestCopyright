@@ -164,8 +164,10 @@ def main():
         print(beginLines)
         print(endLines)
         
-
-        
+        splits = filedata.split("\n")
+        filedata = ""
+        for id,split in enumerate(splits):
+            print(id)
 
         
         #--------------------------------------------------------------------------------------------------------------------------------
