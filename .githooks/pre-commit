@@ -110,6 +110,7 @@ def main():
         print("\n" + filename)
         diffModifiedFiles = system('git', 'diff', '--minimal' ).decode('utf-8')
         print("ICI")
+        print(filename)
         print(diffModifiedFiles + '\n')
         # Read in the file
         with open(filename, 'r') as file :
