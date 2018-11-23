@@ -121,17 +121,16 @@ def main():
         #Change balise hook : //PRAXINOS: CHANGED BEGIN and //PRAXINOS: CHANGED END
         #We keep the diff and we do a regex to isolate chunks of changes, so we can add the balises at the right spots
         REdiff = re.compile('(?P<diff>@@.*@@[^@]*)')
-        diffModifiedFile = system('git', 'diff', '--cached', filename ).decode('utf-8')
-        diffModifiedFile2 = REdiff.findall(diffModifiedFile)
-        print(diffModifiedFile)
-        print(diffModifiedFile2)
+        diffModifiedFileRaw = system('git', 'diff', '--cached', filename ).decode('utf-8') #The raw diff
+        diffModifiedFileParsed = REdiff.findall(diffModifiedFileRaw) #The diff where only the chunks of changes are conserved
+        print(diffModifiedFileParsed)
         
         #The regex to get the line where the chunk of changes begins and the number of lines of the chunk
-        REbeginLines = re.compile('@@.*\+(?P<number>[0-9]+)', re.MULTILINE)
-        REnumberLines = re.compile('@@.*\+[0-9]+,(?P<number>[0-9]+)', re.MULTILINE)
+        REbeginLines = re.compile('@@.*\+(?P<number>[0-9]+) @@', re.MULTILINE)
+        REnumberLines = re.compile('@@.*\+[0-9]+,(?P<number>[0-9]+) @@', re.MULTILINE)
         
-        beginLines = REbeginLines.findall(diffModifiedFile)
-        numberLines = REnumberLines.findall(diffModifiedFile)
+        beginLines = REbeginLines.findall(diffModifiedFileRaw)
+        numberLines = REnumberLines.findall(diffModifiedFileRaw)
         
         print(beginLines)
         print(numberLines)
