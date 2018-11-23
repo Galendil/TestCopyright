@@ -108,12 +108,9 @@ def main():
         print( "\nNONE")
     for filename in modifiedUnrealHookedFiles:
         print("\n" + filename)
+    
 
-        file = "Engine/Source/dqsd.cpp"
-        diffModifiedFiles = system('git', 'diff', '--cached', filename ).decode('utf-8')
-        print("ICI")
 
-        print(diffModifiedFiles + '\n')
         
         # Read in the file
         with open(filename, 'r') as file :
@@ -121,7 +118,12 @@ def main():
             
         #UNREAL HOOK CHECKS -------------------------------------------------------------------------------------------------------------
         
+        #Change balise hook : //PRAXINOS: CHANGED BEGIN and //PRAXINOS: CHANGED END
+        #We keep the diff and we do a regex to isolate chunks of changes, so we can add the balises at the right spots
+        diffModifiedFile = system('git', 'diff', '--cached', filename ).decode('utf-8')
         
+        REbeginLine = re.compile('@@.*+(?P<number>[0-9]+)', re.MULTILINE)
+        REnumberLines = re.compile('@@.*+[0-9]+,(?P<number>[0-9]+)', re.MULTILINE)
         
         #--------------------------------------------------------------------------------------------------------------------------------
 
