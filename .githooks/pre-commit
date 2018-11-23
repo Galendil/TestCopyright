@@ -171,7 +171,7 @@ def main():
         filedata = ""
         inChange = False
         for id,split in reversed(list(enumerate(splits))):
-            if( (id+1) in endLines ):
+            if( (id+2) in endLines ):
                 print("Adding changed end")
                 inChange = True
                 filedata = "//PRAXINOS: CHANGED END\n" + filedata
