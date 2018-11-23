@@ -143,6 +143,7 @@ def main():
         for id,diff in enumerate(diffModifiedFileParsed):
             diff = diff.split("\n")
             for line in diff:
+                print(line)
                 encounteredDiff = False
                 if( REremovedLine.match(line) ):
                     beginLines[id]-=1
