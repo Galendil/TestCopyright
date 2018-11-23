@@ -109,7 +109,7 @@ def main():
     for filename in modifiedUnrealHookedFiles:
         print("\n" + filename)
         diffModifiedFiles = system('git', 'diff', '--minimal', filename ).decode('utf-8')
-
+        print("ICI")
         print(diffModifiedFiles + '\n')
         # Read in the file
         with open(filename, 'r') as file :
