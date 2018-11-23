@@ -36,7 +36,7 @@ datafssd
 fabssdfsqdqsdqsdqsdsdqsdqsqqsddqsdqsdqsddqsqsdqsdd
 // Vous pouvez en généraqqdssdqsdqsdqsdl ignorer ce fichier, mais gardez-le si vous utilisez des en-têtes précompilés.
 dqsddqsdqsdqsdqsd
-anchoisqsdqsdqsd      qsdqsdqsd qsdqsd     
+anchoisqsdqsdqsd      qsdqqsdqsdsdqsd qsdqsd     
 qsdsqdqsddqzdfsdf
 sdfqsdqsdqsdqsdqsdqsd
 sdfsdfqsdqsdqsd
@@ -62,7 +62,7 @@ sdffs
 datafs
 datafssd
 fabssdfsqdqsdqsdqsdsdqsdqsdqsqsdqsdd
-// Vous pouvez en généraqsdqsdqsdqsdl ignorer ce fichier, mais gardez-le si vous utilisez des en-têtes précompilés.
+// Vous pouvez en généraqsdqsdqsdqsqsdqsddl ignorer ce fichier, mais gardez-le si vous utilisez des en-têtes précompilés.
 dqsddqsdqsd
 anchoisqsdqsdqsd            
 qsdsqdqsddqzdfsdf
