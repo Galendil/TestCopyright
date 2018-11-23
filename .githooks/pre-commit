@@ -122,11 +122,11 @@ def main():
         #We keep the diff and we do a regex to isolate chunks of changes, so we can add the balises at the right spots
         diffModifiedFile = system('git', 'diff', '--cached', filename ).decode('utf-8')
         
-        REbeginLine = re.compile('@@.*+(?P<number>[0-9]+)', re.MULTILINE)
-        REnumberLines = re.compile('@@.*+[0-9]+,(?P<number>[0-9]+)', re.MULTILINE)
+        REbeginLine = re.compile('@@.*\+(?P<number>[0-9]+)', re.MULTILINE)
+        REnumberLines = re.compile('@@.*\+[0-9]+,(?P<number>[0-9]+)', re.MULTILINE)
         
-        beginLine = REbeginLine.find(diffModifiedFile)
-        numberLines = REnumberLines.find(diffModifiedFile)
+        beginLine = REbeginLine.findall(diffModifiedFile)
+        numberLines = REnumberLines.findall(diffModifiedFile)
         
         print(beginLine)
         print(numberLines)
