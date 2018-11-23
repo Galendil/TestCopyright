@@ -183,7 +183,7 @@ def main():
                 inCurrentChange = False
                 filedata = "//PRAXINOS: CHANGED BEGIN\n" + filedata
             
-            if( REchangedEnd.match(split) ) and not inCurrentChange:
+            if( REchangedEnd.match(split) ) and not inPreviousChange:
                 print( "match end")
                 inPreviousChange = True
             if( REchangedEnd.match(split) ) and inCurrentChange:
