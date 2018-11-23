@@ -150,6 +150,7 @@ def main():
                 print(line)
                 if( REremovedLine.match(line) ) and not (encounteredDiff):
                     encounteredDiff = True
+                    endLines[id]=beginLines[id]
                 elif( REaddedLine.match(line) ) and not (encounteredDiff):
                     print("match added")
                     beginLines[id]+=1
