@@ -160,6 +160,7 @@ def main():
                     endLines[id]+=1
                     
             print(beginLines[id])
+            print(endLines[id])
         
 
         
