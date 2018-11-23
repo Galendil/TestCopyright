@@ -161,6 +161,8 @@ def main():
                     endLines[id]+=1
                 elif not (encounteredDiff):
                     beginLines[id]+=1
+                elif(encounteredDiff):
+                    endLines[id]+=1
                     
 
         
