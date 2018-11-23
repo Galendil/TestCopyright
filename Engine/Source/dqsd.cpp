@@ -16,12 +16,9 @@ qsdqsddqsdqsd
 //PRAXINOS: CHANGED END
 		BuildqsdqsdEnvidijdioqsdronment = TargetBuildEnvironment.Shared;
 qsdsq
-		ExtrqsdqsdaModuleNames.Add("UE4Game");
-	}dqsdqsd
-
-}dqsdqs
-dqsdqs
-sqdqsd
+//PRAXINOS: CHANGED BEGIN
+qsdqsd
+//PRAXINOS: CHANGED END
 qsdqsdqsdqsdqsd
 //PRAXINOS: CHANGED BEGIN
 qsdqsdsdqqsdqssqsdqsd
