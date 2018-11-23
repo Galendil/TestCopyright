@@ -142,26 +142,25 @@ def main():
         
         for id,diff in enumerate(diffModifiedFileParsed):
             diff = diff.split("\n")
-            encounteredDiff = False
+            encounteredDiffAdd = False
             beginLines[id]-=1 #We compensate the first line of the diff which gives us the infos of the number of lines
             for line in diff:
                 print("begin:" + str(beginLines[id]))
                 print("end:" + str(endLines[id]))
                 print(line)
-                if( REremovedLine.match(line) ):
-                    print("match remove")
+                if( REremovedLine.match(line) ) and not (encounteredDiffAdd):
                     beginLines[id]-=1
                     endLines[id]=beginLines[id]
-                    encounteredDiff = True
-                elif( REaddedLine.match(line) ):
+                elif( REaddedLine.match(line) ) and not (encounteredDiffAdd):
                     print("match added")
                     beginLines[id]+=1
                     endLines[id]=beginLines[id]
-                    encounteredDiff = True
-                elif not (encounteredDiff):
-                    beginLines[id]+=1
-                else:
+                    encounteredDiffAdd = True
+                elif( REaddedLine.match(line) ) and (encounteredDiffAdd):
+                    print("match added")
                     endLines[id]+=1
+                elif not (encounteredDiffAdd):
+                    beginLines[id]+=1
                     
 
         
