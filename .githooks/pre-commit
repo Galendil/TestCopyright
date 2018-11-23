@@ -130,7 +130,7 @@ def main():
         
         beginLines = list(map(int, REbeginLines.findall(diffModifiedFileRaw))) #The lines at which we except a balise //PRAXINOS: CHANGED BEGIN
         numberLines = list(map(int,REnumberLines.findall(diffModifiedFileRaw))) #The number of lines of the diff output
-        endLines = beginLines #The lines at which we except a balise //PRAXINOS: CHANGED END
+        endLines = beginLines.copy() #The lines at which we except a balise //PRAXINOS: CHANGED END
         
         REremovedLine = re.compile('-.*')
         REaddedLine = re.compile('\+.*')
