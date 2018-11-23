@@ -22,9 +22,6 @@ def main():
     print ("Starting hooks --------------------------------------\n ")
 
     allModifiedFiles = system('git', 'status', '--porcelain').decode('utf-8')
-    diffModifiedFiles = system('git', 'diff', '--minimal')
-    print("cLA")
-    print(diffModifiedFiles)
     
     REmodifiedOdysseyCpp = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.cpp)', re.MULTILINE)
     REmodifiedOdysseyH = re.compile('^[AM]+\s+(?P<name>Engine/Source/Odyssey.*\.h)', re.MULTILINE)
@@ -111,6 +108,9 @@ def main():
         print( "\nNONE")
     for filename in modifiedUnrealHookedFiles:
         print("\n" + filename)
+        diffModifiedFiles = system('git', 'diff', '--minimal', filename ).decode('utf-8')
+
+        print(diffModifiedFiles + '\n')
         # Read in the file
         with open(filename, 'r') as file :
             filedata = file.read()
