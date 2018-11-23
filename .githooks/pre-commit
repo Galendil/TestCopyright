@@ -135,9 +135,9 @@ def main():
         print(numberLines)
         
         
-        for diff, beginLine in diffModifiedFileParsed, beginLines:
+        for id,diff in enumerate(diffModifiedFileParsed):
             diff = diff.split("\n")
-            print(beginLine)
+            print(beginLines[id])
             for line in diff:
                 print (line)
         
