@@ -137,6 +137,7 @@ def main():
         
         for diff, beginLine in diffModifiedFileParsed, beginLines:
             diff = diff.split("\n")
+            print(beginLine)
             for line in diff:
                 print (line)
         

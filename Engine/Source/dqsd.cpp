@@ -38,7 +38,7 @@ fabssdfsqdqsdqsdqsdsdqsdqqsdqsdsqqsddqsdqsdqsddqsqsdqsdd
 dqsddqsdqsdqsdqsd
 anchoisqsdqsdqsd      qsqsdqsdqqsdqsdsdqsd qsdqsd     
 qsdsqdqsddqzdfsdfqsdqsd
-sdfqsdqsdqsdqsdqsdqsd
+sdfqsqsdqsdqsddqsdqsdqsdqsdqsd
 sdfsdfqsdqsdqsd
 sdff
 sdff
@@ -50,7 +50,7 @@ datafssd
 fabssdqsdqsdqsdfsqdqsdqsdqsdsdqsdqsdqsqsdqsddqsdqsd
 // Vous pouvez en généraqsdqsdqsdqsdl ignorer ce fichier, mais gardez-le si vous utilisez des en-têtes précompilés.
 dqsddqsdqsd
-anchoisqsdqsdqsd            qsdqsd
+anchoqsdqsdisqsdqsdqsd            qsdqsd
 qsdsqdqsddqzdfsdf
 sdf
 sdfsdf
