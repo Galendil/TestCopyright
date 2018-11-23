@@ -7,7 +7,7 @@ public class UE4ClientTarget : TargetRules
 {
 //PRAXINOS: CHANGED BEGIN
 qsqsdqsdd
-//PRAXINOS: CHANGED END
+qsdqsd
     public UE4CzerezqsdqsdrlientTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargqsdqsdzerzeretType.Client;

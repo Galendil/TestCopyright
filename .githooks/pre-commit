@@ -169,25 +169,35 @@ def main():
         
         splits = filedata.split("\n")
         filedata = ""
-        inChange = False
+        
+        inCurrentChange = False
         inPreviousChange = False
+        
         for id,split in reversed(list(enumerate(splits))):
-            if( (id+1) in endLines ) and not inChange:
+            if( (id+1) in endLines ) and not inCurrentChange and not inPreviousChange:
                 print("Adding changed end")
-                inChange = True
+                inCurrentChange = True
                 filedata = "//PRAXINOS: CHANGED END\n" + filedata
-            if( (id+2) in beginLines ) and inChange and not inPreviousChange:
+            if( (id+2) in beginLines ) and inCurrentChange and not inPreviousChange:
                 print("Adding changed begin")
-                inChange = False
+                inCurrentChange = False
                 filedata = "//PRAXINOS: CHANGED BEGIN\n" + filedata
-            if( REchangedEnd.match(split) ):
+            
+            if( REchangedEnd.match(split) ) and not inCurrentChange:
                 print( "match end")
-                inChange = True
                 inPreviousChange = True
-            if(REchangedBegin.match(split) ):
+            if( REchangedEnd.match(split) ) and inCurrentChange:
+                print( "Destroy end change")
+                split = ""
+            
+            if(REchangedBegin.match(split) ) and inPreviousChange:
                 print( "match begin")
-                inChange = False
                 inPreviousChange = False
+            if( REchangedBegin.match(split) ) and inCurrentChange:
+                print( "Destroy begin change")
+                split = ""
+
+                
             filedata = split + "\n" + filedata
             print(id+1)
             print(split)
