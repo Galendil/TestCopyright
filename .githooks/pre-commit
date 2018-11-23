@@ -175,26 +175,20 @@ def main():
         
         for id,split in reversed(list(enumerate(splits))):
             if( (id+1) in endLines ) and not inCurrentChange and not inPreviousChange:
-                print("Adding changed end")
                 inCurrentChange = True
                 filedata = "//PRAXINOS: CHANGED END\n" + filedata
             if( (id+2) in beginLines ) and inCurrentChange and not inPreviousChange:
-                print("Adding changed begin")
                 inCurrentChange = False
                 filedata = "//PRAXINOS: CHANGED BEGIN\n" + filedata
             
             if( REchangedEnd.match(split) ) and not inPreviousChange:
-                print( "match end")
                 inPreviousChange = True
             if( REchangedEnd.match(split) ) and inCurrentChange:
-                print( "Destroy end change")
                 split = ""
             
             if(REchangedBegin.match(split) ) and inPreviousChange:
-                print( "match begin")
                 inPreviousChange = False
             if( REchangedBegin.match(split) ) and inCurrentChange:
-                print( "Destroy begin change")
                 split = ""
 
                 
@@ -203,7 +197,16 @@ def main():
             
         filedata = filedata[:-1] #We get rid of the last \n added by the reversed algorithm
 
-
+        #We get rid of the side to side balises
+        splits = filedata.split("\n")
+        filedata = ""
+        for id,split in enumerate(splits):
+            if not (id == (len(splits) - 2) ):
+                if( REchangedBegin.match(splits[id]) ) and (REchangedEnd.match(splits[id+1]) ):
+                    splits[id] = ""
+                    splits[id+1] = ""
+                else:
+                    filedata = filedata + split + "\n"
 
         
         #--------------------------------------------------------------------------------------------------------------------------------
