@@ -125,6 +125,12 @@ def main():
         REbeginLine = re.compile('@@.*+(?P<number>[0-9]+)', re.MULTILINE)
         REnumberLines = re.compile('@@.*+[0-9]+,(?P<number>[0-9]+)', re.MULTILINE)
         
+        beginLine = REbeginLine.find(diffModifiedFile)
+        numberLines = REnumberLines.find(diffModifiedFile)
+        
+        print(beginLine)
+        print(numberLines)
+        
         #--------------------------------------------------------------------------------------------------------------------------------
 
         # Write the file out again
