@@ -175,7 +175,7 @@ def main():
                 print("Adding changed end")
                 inChange = True
                 filedata = "//PRAXINOS: CHANGED END\n" + filedata
-            if( (id+2) in beginLines ) and not inChange:
+            if( (id+2) in beginLines ) and inChange:
                 print("Adding changed begin")
                 inChange = False
                 filedata = "//PRAXINOS: CHANGED BEGIN\n" + filedata
